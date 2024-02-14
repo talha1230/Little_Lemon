@@ -1,7 +1,19 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Animated } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Animated, Image } from 'react-native';
 import { auth } from 'C:/Users/Talha PC/FirstProject/FirebaseConfigs.ts'; // Import the auth instance from your Firebase setup file
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { MaterialIcons } from '@expo/vector-icons'; // Import icons from expo
+import * as Animatable from 'react-native-animatable'; // Import animatable library
+import * as Font from 'expo-font'; // Import font library
+
+// Import lemon image
+import LemonImage from'C:/Users/Talha PC/FirstProject/assets/SignupPhoto.jpg';
+
+// Load fonts from Google Fonts
+Font.loadAsync({
+  Lemonada: require('C:/Users/Talha PC/FirstProject/assets/fonts/Lemonada.ttf'),
+  LemonMilk: require('C:/Users/Talha PC/FirstProject/assets/fonts/LemonMilk.ttf'),
+});
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -43,6 +55,13 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* Add a lemon image on the top of the page */}
+      <Animatable.Image
+        source={LemonImage}
+        style={styles.lemonImage}
+        animation="bounceIn"
+        duration={1000}
+      />
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
@@ -86,10 +105,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#fffacd', // Change the background color to a light yellow
+  },
+  lemonImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
   },
   title: {
     fontSize: 24,
     marginBottom: 20,
+    color: '#228b22', // Change the title color to a dark green
+    fontFamily: 'Lemonada', // Change the title font to Lemonada
   },
   input: {
     width: '100%',
@@ -99,10 +127,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     padding: 10,
+    color: '#228b22', // Change the input text color to a dark green
+    fontFamily: 'LemonMilk', // Change the input font to Lemon Milk
   },
   loginButton: {
     width: '100%',
-    backgroundColor: '#007bff',
+    backgroundColor: '#32cd32', // Change the login button color to a bright green
     paddingVertical: 12,
     borderRadius: 5,
     alignItems: 'center',
@@ -120,6 +150,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    fontFamily: 'LemonMilk', // Change the button font to Lemon Milk
   },
   successMessage: {
     position: 'absolute',
@@ -131,6 +162,7 @@ const styles = StyleSheet.create({
   successText: {
     color: '#fff',
     fontSize: 16,
+    fontFamily: 'LemonMilk', // Change the success text font to Lemon Milk
   },
 });
 
