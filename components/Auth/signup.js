@@ -1,7 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { View, StyleSheet, Text, Modal, Animated, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Modal, Animated, Dimensions, TextInput, TouchableOpacity, Image } from 'react-native';
 import { auth } from 'C:/Users/Talha PC/FirstProject/FirebaseConfigs.ts';
 import { createUserWithEmailAndPassword } from 'firebase/auth'; 
+import { MaterialIcons } from '@expo/vector-icons'; // Import icons from expo
+
+// Import lemon image
+import LemonImage from'C:/Users/Talha PC/FirstProject/assets/SignupPhoto.jpg';
 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -47,6 +51,14 @@ const Signup = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* Add a back button to go to the previous screen */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()} // Use navigation prop to go back
+      >
+        <MaterialIcons name="arrow-back" size={24} color="#007bff" />
+      </TouchableOpacity>
+      <Text style={styles.title}>Sign Up</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -99,6 +111,7 @@ const Signup = ({ navigation }) => {
               },
             ]}
           >
+            <Image source={LemonImage} style={styles.lemonImage} />
             <Text style={styles.modalText}>Signup successful!</Text>
             <TouchableOpacity onPress={() => setSuccessModalVisible(false)}>
               <Text style={styles.closeButton}>Close</Text>
@@ -117,6 +130,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     backgroundColor: '#fff',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#007bff',
+    marginBottom: 20,
   },
   input: {
     width: '100%',
@@ -142,23 +166,32 @@ const styles = StyleSheet.create({
   },
   modalBackground: {
     flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
+    width: '80%',
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 20,
     alignItems: 'center',
+    elevation: 5,
   },
   modalText: {
-    fontSize: 18,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#007bff',
     marginBottom: 10,
   },
+  lemonImage: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
   closeButton: {
-    fontSize: 16,
     color: '#007bff',
+    fontSize: 16,
   },
 });
 
