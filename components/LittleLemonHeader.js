@@ -1,7 +1,14 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function LittleLemonHeader() {
+  const navigation = useNavigation();
+
+  const handleLoginPress = () => {
+    navigation.navigate('Login');
+  };
+
   return (
     <View style={styles.headerContainer}>
       <Image 
@@ -13,6 +20,9 @@ export default function LittleLemonHeader() {
         <Text style={[styles.boldText, { color: 'yellow' }]}>Little Lemon </Text>
         <Text style={styles.headerText}> Shop</Text>
       </View>
+      <TouchableOpacity onPress={handleLoginPress}>
+        <Text style={styles.loginButton}>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -24,7 +34,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
     borderRadius: 10,
-    flexDirection: 'row', // layout logo and text in one line
+    flexDirection: 'row', // layout logo, text, and button in one line
     alignItems: 'center', // center items vertically
     justifyContent: 'space-between', // distribute items evenly
   },
@@ -49,7 +59,10 @@ const styles = StyleSheet.create({
     height: 50, // or the size you want
     resizeMode: 'contain', // to maintain the aspect ratio of the logo
   },
-  buttonContainer: {
-    // Add any styles you want for your button container
+  loginButton: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginRight: 10,
   },
 });
