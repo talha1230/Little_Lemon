@@ -12,6 +12,9 @@ export default function LittleLemonHeader() {
   const handleSignupPress = () => {
     navigation.navigate('Signup');
   };
+  const handleProfilePress = () => {
+    navigation.navigate('ProfileView'); // Navigate to ProfileView
+  };
 
   return (
     <View style={styles.headerContainer}>
@@ -29,6 +32,9 @@ export default function LittleLemonHeader() {
       </TouchableOpacity>
       <TouchableOpacity onPress={handleSignupPress} style={[styles.buttonContainer, styles.signupButton]}>
         <Text>Signup</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleProfilePress} style={styles.buttonContainer}>
+        <Text>Profile</Text>
       </TouchableOpacity>
     </View>
   );
