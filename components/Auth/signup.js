@@ -10,6 +10,7 @@ const Signup = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
 
   const handleSignup = () => {
+    console.log('handleSignup called'); // Added console.log to verify function call
     setLoading(true);
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -18,12 +19,15 @@ const Signup = ({ navigation }) => {
         }
       })
       .catch((error) => {
+        console.error(error); // Log the error to the console
         setErrorMessage(error.message);
       })
       .finally(() => {
+        console.log('Setting loading to false'); // Added console.log to verify loading state
         setLoading(false);
       });
   };
+
 
   return (
     <View style={styles.container}>

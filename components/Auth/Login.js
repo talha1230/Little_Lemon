@@ -6,7 +6,8 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-    
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleLogin = () => {
     setLoading(true);
     auth.signInWithEmailAndPassword(email, password)
@@ -14,6 +15,7 @@ const Login = ({ navigation }) => {
         // Signed in
         const user = userCredential.user;
         console.log('User logged in:', user.uid);
+        setSuccessMessage('Login successful!'); // Set success message
         // Navigate to the next screen or perform any other action
       })
       .catch((error) => {
@@ -44,6 +46,7 @@ const Login = ({ navigation }) => {
         value={password}
         secureTextEntry
       />
+      {successMessage ? <Text style={styles.successMessage}>{successMessage}</Text> : null} {/* Render success message if it exists */}
       <TouchableOpacity
         style={styles.loginButton}
         onPress={handleLogin}
@@ -103,6 +106,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  successMessage: {
+    color: 'green',
+    marginBottom: 10,
   },
 });
 
