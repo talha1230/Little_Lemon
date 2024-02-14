@@ -7,13 +7,13 @@ import { getAuth } from 'firebase/auth';
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID"
+  apiKey: "AIzaSyAWP_rhrSc_LCEt8zpMLlvwFTGuzMHW5gk",
+  authDomain: "little-lemon-b5b2d.firebaseapp.com",
+  projectId: "little-lemon-b5b2d",
+  storageBucket: "little-lemon-b5b2d.appspot.com",
+  messagingSenderId: "633497567437",
+  appId: "1:633497567437:web:0f2dd964076f26d5d06984",
+  measurementId: "G-34C2PZCJ9C"
 };
 
 // Initialize Firebase

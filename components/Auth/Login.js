@@ -1,22 +1,42 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { auth } from 'C:/Users/Talha PC/FirstProject/FirebaseConfigs.ts'; // Import the auth instance from your Firebase setup file
+import React, { useState, useRef } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Animated } from 'react-native';
+import { auth } from 'C:/Users/Talha PC/FirstProject/FirebaseConfigs.ts';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const handleLogin = () => {
     setLoading(true);
-    auth.signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         console.log('User logged in:', user.uid);
-        setSuccessMessage('Login successful!'); // Set success message
-        // Navigate to the next screen or perform any other action
+        setSuccessMessage('Login successful!');
+        // Clear success message after 3 seconds
+        setTimeout(() => {
+          setSuccessMessage('');
+       
+        }, 3000);
+        // Start animation
+        Animated.timing(fadeAnim, {
+          toValue: 1, // Fade in
+          duration: 1000, // Animation duration
+          useNativeDriver: true,
+        }).start(() => {
+          // Start fade out animation after 2 seconds
+          setTimeout(() => {
+            Animated.timing(fadeAnim, {
+              toValue: 0, // Fade out
+              duration: 1000, // Animation duration
+              useNativeDriver: true,
+            }).start();
+          }, 2000);
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -27,7 +47,7 @@ const Login = ({ navigation }) => {
         setLoading(false);
       });
   };
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
@@ -46,7 +66,11 @@ const Login = ({ navigation }) => {
         value={password}
         secureTextEntry
       />
-      {successMessage ? <Text style={styles.successMessage}>{successMessage}</Text> : null} {/* Render success message if it exists */}
+      {successMessage ? (
+        <Animated.Text style={[styles.successMessage, { opacity: fadeAnim }]}>
+          {successMessage}
+        </Animated.Text>
+      ) : null}
       <TouchableOpacity
         style={styles.loginButton}
         onPress={handleLogin}
@@ -63,10 +87,9 @@ const Login = ({ navigation }) => {
       </TouchableOpacity>
     </View>
   );
-};
-
-
-const styles = StyleSheet.create({
+  };
+  
+  const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -111,6 +134,7 @@ const styles = StyleSheet.create({
     color: 'green',
     marginBottom: 10,
   },
-});
-
-export default Login;
+  });
+  
+  export default Login;
+  
