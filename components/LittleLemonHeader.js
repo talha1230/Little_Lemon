@@ -9,6 +9,10 @@ export default function LittleLemonHeader() {
     navigation.navigate('Login');
   };
 
+  const handleSignupPress = () => {
+    navigation.navigate('Signup');
+  };
+
   return (
     <View style={styles.headerContainer}>
       <Image 
@@ -20,8 +24,11 @@ export default function LittleLemonHeader() {
         <Text style={[styles.boldText, { color: 'yellow' }]}>Little Lemon </Text>
         <Text style={styles.headerText}> Shop</Text>
       </View>
-      <TouchableOpacity onPress={handleLoginPress}>
-        <Text style={styles.loginButton}>Login</Text>
+      <TouchableOpacity onPress={handleLoginPress} style={[styles.buttonContainer, styles.loginButton]}>
+        <Text>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleSignupPress} style={[styles.buttonContainer, styles.signupButton]}>
+        <Text>Signup</Text>
       </TouchableOpacity>
     </View>
   );
@@ -59,10 +66,17 @@ const styles = StyleSheet.create({
     height: 50, // or the size you want
     resizeMode: 'contain', // to maintain the aspect ratio of the logo
   },
+  buttonContainer: {
+    borderRadius: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
   loginButton: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginRight: 10,
+    backgroundColor: '#fff',
+    marginRight: 8, // Add right margin to separate from signup button
+  },
+  signupButton: {
+    backgroundColor: '#fff',
+    marginLeft: 8, // Add left margin to separate from login button
   },
 });

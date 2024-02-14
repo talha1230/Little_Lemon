@@ -1,5 +1,3 @@
-// App.js
-
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,6 +8,7 @@ import LittleLemonFooter from './components/LittleLemonFooter';
 import Welcome from './components/Welcome';
 import MenuItems from './components/MenuItems';
 import Login from './components/Auth/Login';
+import Signup from './components/Auth/signup';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +20,11 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
           options={{ headerShown: false, gestureEnabled: false }}
         />
       </Stack.Navigator>
