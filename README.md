@@ -1,8 +1,20 @@
 # 🍋 Little Lemon Project 🍋
 
+![GitHub](https://img.shields.io/github/license/talha1230/Little_Lemon)
+![GitHub stars](https://img.shields.io/github/stars/talha1230/Little_Lemon)
+![GitHub forks](https://img.shields.io/github/forks/talha1230/Little_Lemon)
+
 Welcome to the Little Lemon project! This project is a delightful and refreshing application for a cozy and friendly neighborhood bistro called Little Lemon. The application lets you explore the bistro, its delicious menu, its convenient operating hours, and its charming story.
 
+## Table of Contents
 
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Installation](#-installation)
+- [Technologies Used](#-technologies-used)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Acknowledgements](#-acknowledgements)
 
 ## 🌟 Features
 
@@ -27,43 +39,22 @@ To run this project locally, follow these simple steps:
 
 ```bash
 git clone https://github.com/talha1230/Little_Lemon.git
-```
 
-2. Navigate to the project directory:
-
-```bash
-cd Little_Lemon
-```
-
-3. Install dependencies:
-
-```bash
-npm install
-```
-
-4. Run the project:
-
-```bash
-npm start
-```
-
-## 🛠️ Technologies Used
-
-- React Native: A framework for building native apps using React.
-- JavaScript: A programming language that makes the app dynamic and interactive.
-- JSX: A syntax extension that allows writing HTML-like code in React.
-
-## 🤝 Contributing
-
+Navigate to the project directory:
+Install dependencies:
+Run the project:
+🛠️ Technologies Used
+React Native: A framework for building native apps using React.
+JavaScript: A programming language that makes the app dynamic and interactive.
+JSX: A syntax extension that allows writing HTML-like code in React.
+🤝 Contributing
 Contributions are welcome! If you have any suggestions, feedback, or bug reports, please feel free to submit them. You can also create pull requests if you want to add or improve any features.
 
-## 📜 License
+📜 License
+This project is licensed under the MIT License, which means you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
 
-This project is licensed under the [MIT License](LICENSE), which means you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
-
-## 🙏 Acknowledgements
-
-- Thanks to [Talha](https://github.com/talha1230) for creating this project and sharing it with the world.
-- Thanks to [Unsplash](https://unsplash.com/) for providing free and beautiful images for the app.
+🙏 Acknowledgements
+Thanks to Talha for creating this project and sharing it with the world.
+Thanks to Unsplash for providing free and beautiful images for the app.
 ```
-d
+
