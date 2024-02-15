@@ -65,7 +65,10 @@ const Signup = ({ navigation }) => {
     return <AppLoading />;
   } else {
     return (
-      <View style={styles.container}>
+      <LinearGradient
+        colors={['#ffecb3', '#ffab40']}
+        style={styles.container}
+      >
         <ImageBackground
           source={LemonImage}
           style={styles.image}
@@ -83,13 +86,13 @@ const Signup = ({ navigation }) => {
         <Text style={styles.title}>Sign Up</Text>
         <View style={styles.inputRow}>
           <TextInput
-            style={styles.inputHalf}
+            style={[styles.inputHalf, { marginRight: 5 }]} // Adjusting individual TextInput style
             placeholder="First Name"
             onChangeText={setFirstName}
             value={firstName}
           />
           <TextInput
-            style={styles.inputHalf}
+            style={[styles.inputHalf, { marginLeft: 5 }]} // Adjusting individual TextInput style
             placeholder="Last Name"
             onChangeText={setLastName}
             value={lastName}
@@ -170,7 +173,8 @@ const Signup = ({ navigation }) => {
             </Animated.View>
           </View>
         </Modal>
-      </View>
+        </LinearGradient>
+
     );
   }
 };
@@ -210,9 +214,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   inputRow: {
-    width: 300,
+    width: 312,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom: 10, // Adjusting margin bottom for spacing
   },
   input: {
     width: 300,
@@ -225,14 +230,14 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   inputHalf: {
-    width: 140,
+    width: 145, // Adjusting width for individual TextInput
     height: 40,
     backgroundColor: '#fff',
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ddd',
     padding: 10,
-    margin: 10,
+    margin: 5, // Adjusting margin for spacing
   },
   signupButton: {
     width: 300,
