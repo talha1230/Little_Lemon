@@ -33,7 +33,7 @@ export default function LittleLemonHeader() {
       <TouchableOpacity onPress={handleSignupPress} style={[styles.buttonContainer, styles.signupButton]}>
         <Text>Signup</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleProfilePress} style={styles.buttonContainer}>
+      <TouchableOpacity onPress={handleProfilePress} style={[styles.buttonContainer, styles.profileViewButton]}>
         <Text>Profile</Text>
       </TouchableOpacity>
     </View>
@@ -42,47 +42,53 @@ export default function LittleLemonHeader() {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    backgroundColor: '#a4c3bb', // Lemon color
+    backgroundColor: '#a4c3bb',
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
     borderRadius: 10,
-    flexDirection: 'row', // layout logo, text, and button in one line
-    alignItems: 'center', // center items vertically
-    justifyContent: 'space-between', // distribute items evenly
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap', // Allow the items to wrap to a new line on smaller screens
   },
   textContainer: {
-    flexDirection: 'row', // layout the text in one line
-    justifyContent: 'center', // center the text horizontally
-    flex: 1, // take up the remaining space
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flex: 1,
+    flexWrap: 'wrap', // Allow the text to wrap to a new line on smaller screens
   },
   headerText: {
-    color: '#fff', // White color
+    color: '#fff',
     fontSize: 20,
     textAlign: 'center',
     fontWeight: 'bold',
+    flexWrap: 'wrap', // Allow the text to wrap to a new line on smaller screens
   },
   boldText: {
     fontWeight: 'bold',
-    color: '#fff', // White color
+    color: '#fff',
     fontSize: 20,
+    flexWrap: 'wrap', // Allow the text to wrap to a new line on smaller screens
   },
   logo: {
-    width: 50, // or the size you want
-    height: 50, // or the size you want
-    resizeMode: 'contain', // to maintain the aspect ratio of the logo
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+    flexShrink: 1, // Allow the logo to shrink if necessary to prevent overflow
   },
   buttonContainer: {
     borderRadius: 10,
     paddingVertical: 8,
     paddingHorizontal: 16,
+    flexShrink: 1, // Allow the buttons to shrink if necessary to prevent overflow
   },
   loginButton: {
     backgroundColor: '#fff',
-    marginRight: 8, // Add right margin to separate from signup button
+    marginRight: 8,
   },
   signupButton: {
     backgroundColor: '#fff',
-    marginLeft: 8, // Add left margin to separate from login button
+    marginLeft: 8,
   },
 });

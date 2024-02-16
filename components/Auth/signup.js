@@ -190,6 +190,7 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 15,
     overflow: 'hidden',
+    filter: 'drop-shadow(10px 10px 10px black)',
   },
   textContainer: {
     position: 'absolute',
